@@ -40,5 +40,6 @@ export async function getStaticProps() {
 
   return {
     props: { sortedPosts },
+    revalidate: 3,
   };
 }

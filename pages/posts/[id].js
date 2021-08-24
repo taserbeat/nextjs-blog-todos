@@ -68,5 +68,11 @@ export async function getStaticProps({ params }) {
     props: {
       post,
     },
+    // Incremental Static Regeneration: HTMLファイルの再生成機能を利用する。
+    // 1. ユーザーがアクセスすると、古いHTMLで応答し、同時にHTMLを最新のデータで更新(再生成)する。
+    // 2. 再生成後は、ユーザーからのアクセスに対して最新のHTMLを応答する。
+    //    revalidateに秒数を指定することでその秒数間は再生成を行わないようになり、
+    //    再生成の頻度を抑制することができる。 (Stale while Revalidation)
+    revalidate: 3,
   };
 }
