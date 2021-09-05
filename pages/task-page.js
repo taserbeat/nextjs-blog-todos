@@ -30,7 +30,9 @@ export default function TaskPage({ staticTasks }) {
       {/* タスクのリスト */}
       <ul>
         {sortedTasks &&
-          sortedTasks.map((task) => <Task key={task.id} task={task} />)}
+          sortedTasks.map((task) => (
+            <Task key={task.id} task={task} taskDeleted={mutate} />
+          ))}
       </ul>
 
       <Link href="/main-page" passHref>
